@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: checklist, roadmap to the Platinum, missable warnings, and a guide for every trophy in our own words.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Offline guide &amp; tracker</p>
+    <h1>Leonida Ledger</h1>
+    <p class="standfirst">Every one of the 55 official trophies — its exact name, description and grade — with a guide in our own words, a checklist that saves in your browser, a road to the Platinum, and the one trophy you can miss.</p>
+    <div class="progress-wrap" aria-label="Overall progress">
+      <div class="progress-line"><span id="progressText">0 of 55 earned</span><span id="progressPct">0%</span></div>
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <p class="grade-counts" id="gradeCounts"></p>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <button type="button" data-view="checklist" class="tab active">Checklist</button>
+  <button type="button" data-view="roadmap" class="tab">Roadmap to Platinum</button>
+  <button type="button" data-view="missables" class="tab">Missables</button>
+  <button type="button" data-view="sources" class="tab">Sources &amp; method</button>
+</nav>
+
+<main id="main">
+  <section id="view-checklist" class="view">
+    <div class="toolbar">
+      <label class="search">Search <input id="q" type="search" placeholder="Trophy name, mission, place…" autocomplete="off"></label>
+      <label>Grade
+        <select id="grade">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Kind
+        <select id="kind">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="side">Side characters</option>
+          <option value="activity">Activities</option>
+          <option value="collectible">Collectibles</option>
+          <option value="crime">Crime</option>
+          <option value="exploration">Exploration</option>
+          <option value="secret">Secret</option>
+          <option value="completion">100% completion</option>
+          <option value="platinum">Platinum</option>
+        </select>
+      </label>
+      <label class="check"><input id="missableOnly" type="checkbox"> Missable only</label>
+      <label class="check"><input id="unconfirmedOnly" type="checkbox"> Unconfirmed only</label>
+      <label>Earned
+        <select id="earnedFilter">
+          <option value="all">Show all</option>
+          <option value="earned">Earned only</option>
+          <option value="remaining">Still to earn</option>
+        </select>
+      </label>
+      <label class="check spoiler"><input id="spoilers" type="checkbox" checked> Hide story &amp; hidden trophies until earned</label>
+      <span class="toolbar-actions">
+        <button id="exportBtn" type="button">Export progress</button>
+        <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+        <button id="resetBtn" type="button">Reset</button>
+      </span>
+    </div>
+    <p id="resultCount" class="result-count"></p>
+    <div id="cards" class="cards"></div>
+    <p id="emptyState" class="empty" hidden>No trophies match these filters. Loosen one and try again.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>The road to the Platinum</h2>
+    <p class="lede">55 trophies: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze. About 200 hours, difficulty 4 out of 10, one playthrough, no online trophies. The list is built from the official descriptions; the timings and method come from PowerPyx's guide, cited in the Sources tab.</p>
+    <ol class="steps">
+      <li><h3>Step 1 — Play the story <span class="step-meta">60–80 hours &middot; 12 story trophies</span></h3>
+      <p>Finish the five chapters and the story missions. The 12 story trophies pop as you go and cannot be missed. Do the Chapter 1 balcony meditation for <strong>Positive Mental Attitude</strong> (see Missables), scan new vehicles with the WAiNK app and study animals with binoculars as you meet them — both count toward 100% later. Keep a manual save at the start and end of every chapter: there are 15 manual slots, no mission replay and no New Game+.</p></li>
+      <li><h3>Step 2 — Side characters &amp; strangers <span class="step-meta">6 side trophies + 1 Silver</span></h3>
+      <p>Finish the questlines for Andy, Kenton, Billy, Randy, Tyrone and Bret as they appear, and complete 8 Strangers &amp; Freaks strands. Every one of these stays available after the story, so nothing here is missable — but do Yago's street-racing strand when it shows up, because one of its races is time-sensitive.</p></li>
+      <li><h3>Step 3 — Activities, collectibles &amp; crime <span class="step-meta">the long grind</span></h3>
+      <p>Work the counters: 250 stunts, gold in all 42 Shooting Range challenges, 14 Top Fun drone-race locations, 20 race wins, 3 card sets, WAiNK at 100 locations, 100 vehicles discovered, 5 bank vaults, 39 illegal gang operations, 52 areas explored. Most of these feed the 100% checklist, so do them before the final clean-up.</p></li>
+      <li><h3>Step 4 — 100% completion, then the Platinum <span class="step-meta">Gold: A Long Road, then the Platinum</span></h3>
+      <p>After the story, the checklist appears under Progress &gt; Stats &gt; 100% Completion. It is forgiving — roughly 60% of the game's content — and nothing on it is missable. Finish any 100 optional missions, scan 200 of 277 vehicles, study 100 of 255 animals, complete 300 stunts and any 70 of 80 challenges, and the Gold pops. The Platinum follows the moment the last trophy does.</p></li>
+    </ol>
+    <aside class="warnings">
+      <h3>Three rules that protect the Platinum</h3>
+      <ul>
+        <li><strong>Cheats switch trophies off</strong> — and switch saving off too. Do not use a cheat until the Platinum has popped.</li>
+        <li><strong>No mission replay.</strong> A story moment you walk past is gone unless you kept a manual save. Save at the start and end of every chapter and once more before the final mission.</li>
+        <li><strong>Do the Chapter 1 meditation.</strong> It is the only trophy with a deadline in the whole list — everything else can be finished in free-roam after the story.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section id="view-missables" class="view" hidden>
+    <h2>Missable trophies</h2>
+    <p class="lede">Built from the official descriptions and checked against PowerPyx, GTABase and OutputLag: exactly one trophy in the whole list can be missed. Everything else can be finished in free-roam after the story.</p>
+    <div id="missableCards" class="cards"></div>
+    <h3>Not missable — but watch these</h3>
+    <ul class="watch-list">
+      <li><strong>Strangers &amp; Freaks</strong> — Yago's “Race Against Yago” in Chapter 3 carries an hourglass icon: it is time-sensitive. Do his street-racing strand when it appears. The guides disagree on whether skipping it can actually lock the trophy, so do not leave it to chance.</li>
+      <li><strong>Optional missions disappear.</strong> Many optional missions (black icons with pink letters) vanish after a while, and some quest givers go quiet for a stretch of the story. PowerPyx reports this does not affect any trophy: the trophy-related characters all return, and there are far more than the 100 optional missions the 100% checklist needs.</li>
+      <li><strong>The final mission.</strong> There is no mission replay, so keep a manual save from just before it — not because a trophy depends on it, but because you cannot replay the ending otherwise.</li>
+      <li><strong>Your criminal profile.</strong> The “Irredeemable” profile is permanent and makes the police far more aggressive. It does not block any trophy, but avoid racking up excessive violence if you can.</li>
+    </ul>
+  </section>
+
+  <section id="view-sources" class="view" hidden>
+    <h2>Sources &amp; method</h2>
+    <p class="lede">Every name, description and grade in this guide was checked on 19 November 2026 against Exophase and PSNProfiles, which agree on all 55. The guides are written in our own words from the official descriptions plus the guides cited below — their text is never copied.</p>
+    <div id="sourceList"></div>
+    <h3>What we verified, and what we did not</h3>
+    <ul class="verify-list">
+      <li><strong>Verified — 55 of 55.</strong> Name, official description and grade for every trophy, against Exophase and PSNProfiles. Grade split: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze. 28 trophies are hidden (12 story, 6 side-character, 10 secret). PSN progress targets are from PSNProfiles.</li>
+      <li><strong>Not yet confirmed — 6 trophies.</strong> No published guide had confirmed a method for <em>In The Beginning…</em>, <em>Capital Offense</em>, <em>Bad Luck, I Guess</em>, <em>The Truth Is Out There</em> and <em>Ten Pin</em> when this guide was built, and the exact animal for <em>Fair Game</em> was still being confirmed. Their guides say so plainly and record the leading guess as a guess, not a fact. Use the “Unconfirmed only” filter to see them.</li>
+      <li><strong>Possibly missable — 1 trophy.</strong> <em>Positive Mental Attitude</em>: whether the Chapter 1 balcony meditation is required is still unconfirmed, so the guide tells you to do it anyway.</li>
+    </ul>
+    <h3>About this guide</h3>
+    <p>This is an unofficial, fan-made guide. It is not affiliated with Rockstar Games, and it uses no Rockstar logo or official artwork. It works fully offline: open <code>index.html</code> in a desktop browser and nothing is fetched over the network. Your progress is saved only in your own browser (localStorage) — export it to keep a copy.</p>
+  </section>
+
+  <section id="view-trophy" class="view" hidden>
+    <p><button id="backBtn" type="button" class="back">&larr; Back to checklist</button></p>
+    <div id="trophyDetail"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Ledger — an unofficial GTA VI trophy guide &amp; tracker. Not affiliated with Rockstar Games. No Rockstar logo or official artwork is used. Works offline; your progress never leaves your browser.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
