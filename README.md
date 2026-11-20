@@ -2,51 +2,48 @@
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/emafajriana/gta6-trophy-guide-01-entry/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/emafajriana/gta6-trophy-guide-01-entry/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
-# Leonida Ledger — GTA VI Trophy Guide & Tracker
+# Leonida Fieldbook — GTA VI Trophy Guide & Tracker
 
-An offline guide and tracker for all **55 PlayStation 5 trophies** of Grand Theft Auto VI (1 Platinum, 2 Gold, 6 Silver, 46 Bronze; 28 hidden). Open `app/index.html` in a desktop browser — it works with the network off and never fetches anything.
+**168 steps. 237 source citations. Every step sourced.**
+
+A complete, offline trophy guide and tracker for Grand Theft Auto VI on PlayStation 5 — all 55 official trophies with their exact names, descriptions and grades — built around one rule most guides skip: **every step of every trophy's guide names the publication it rests on**, printed under the step itself. No uncited claims, no "trust me": if a step cites nothing, it is not in the book. The hand-in program enforces the rule — it refuses to build the dossier if any step lacks a citation — and the app counts the totals live from its own data, so the numbers above are the numbers in the output.
 
 ## What it does
 
-- **Checklist** — every trophy with its exact official name, description and grade, a tick box saved in your browser (localStorage), and a progress bar with per-grade counts.
-- **Guides in our own words** — every trophy has a guide (what to do, where, how, when it can be missed) with its sources named. No guide text is copied from anywhere.
-- **Counters** — trophies with a PSN progress target (250 stunts, 42 Shooting Range golds, 18 meditations, 500 profile actions…) get a stepper that saves your count.
-- **Filters** — by grade, kind, missable, unconfirmed, earned/remaining, plus full-text search.
-- **Spoiler setting** — on by default: the 28 hidden trophies stay hidden until you earn them (or switch the setting off).
-- **Roadmap to the Platinum** — four steps from the story to 100% completion, with the three rules that protect the Platinum (~200 hours, difficulty 4/10, one playthrough, no online trophies).
-- **Missables** — exactly one trophy can be missed: *Positive Mental Attitude* (Lucia's Chapter 1 balcony meditation). Everything else can be finished in free-roam after the story.
-- **Export / import** — save your progress as a JSON file and bring it back on any machine. Notes per trophy, saved with it.
-- **Sources & method** — every source is listed, with what was verified and what was not.
+- **Tracker** — tick trophies off as they pop; progress bar and per-grade counts; your state saves in your browser (localStorage) and never leaves it. Counter trophies (250 stunt jumps, 500 profile actions, $250,000 laundered…) get steppers and numeric inputs that clamp at the official PSN target.
+- **Cited guidance** — each trophy carries a plain-words guide plus numbered steps, and every step ends with its sources (PowerPyx, PSNProfiles, Exophase, GTABase, OutputLag, HowToVideoGame). The Sources & method tab lists all 7 publications and shows, counted live, how many steps cite each one.
+- **Roadmap to the Platinum** — four stages rendered from the data (story → people & pastimes → the long tail → the 100% push), each naming the trophies it clears, plus the three rules that protect the run: no cheats before the Platinum, manual saves at every chapter edge, and the Chapter 1 meditation.
+- **Missables, honestly labelled** — exactly one trophy is even *possibly* missable (Positive Mental Attitude, a Chapter 1 deadline), flagged from the official descriptions; a watch-list covers the near-misses. Six trophies whose methods no publication has confirmed are labelled **Method unconfirmed** in the app, with the leading idea marked as a guess — never dressed up as fact.
+- **Spoiler setting** — the 28 hidden trophies stay covered (name, description and guide) until you earn them, or until you switch the setting off.
+- **Filters & search** — by grade, kind (story / side characters / activities / collectibles / crime / exploration / secret / completion), missable-only, unconfirmed-only, earned state, and full-text search across names, descriptions, guides and steps.
+- **Export / import** — progress moves between browsers and machines as a small JSON file keyed by trophy name; notes per trophy included.
+- **Offline by construction** — plain static files, no build step, no network references, no Rockstar logo or official artwork; the look is the fieldbook's own.
 
-## Verification (19 November 2026)
+## Verification
 
-All 55 names, descriptions and grades were checked against **Exophase** and **PSNProfiles**, which agree on all 55. PSN progress targets are from PSNProfiles. Guide method comes from PowerPyx, GTABase, AlcastHQ, OutputLag and HowToVideoGame, cited per trophy.
-
-**Honest gaps:** no published guide had confirmed a method for *In The Beginning…*, *Capital Offense*, *Bad Luck, I Guess*, *The Truth Is Out There* and *Ten Pin* when this was built, and the exact animal for *Fair Game* was still being confirmed. Those guides say so plainly instead of inventing a location — use the “Unconfirmed only” filter to see them.
+Name, official description and grade for all 55 trophies were cross-checked between Exophase and PSNProfiles (the two agree on all 55); the hidden split — 28 hidden: 12 story, 6 side-character, 10 secret — was cross-checked against AlcastHQ; PSN progress targets are PSNProfiles' figures. Guide steps rest on the publications cited under each step. What could not be verified is labelled, in the app and here: 6 trophies have no confirmed published method yet, and 1 is possibly missable.
 
 ## Run it
 
-```sh
+Node 22, standard library only, nothing to install:
+
+```
 node serve.ts            # serves app/ on http://localhost:8080
 ```
 
-Or just open `app/index.html` directly (served over HTTP is recommended; the app fetches its own `app/data/trophies.json`).
+or open `app/index.html` in a desktop browser. Deep links: `?view=roadmap`, `?view=missables`, `?view=sources`, `?view=trophy&open=28`, `?spoilers=off`, `?demo=1` (a seeded demo state, used for the screenshots).
 
-## Hand in
+## Repository layout
 
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+- `app/` — the guide itself: `index.html` (checklist, roadmap, missables, sources and detail views), `style.css`, `app.js` (tracker state, filters, export/import), `render.js` (the HTML builders and the citation counter), `data/trophies.json` (all 55 trophies: official text, guides, cited steps, the source list, the roadmap stages).
+- `screenshots/` — four JPEGs of the running app at 1280×800, inventoried in `shots.json`.
+- `main.ts` — the hand-in program (see below). `serve.ts` — the local preview server.
+- `vendor/makefun-frontend.ts` — the kit's vendored dossier library, byte-identical to the kit's copy, as the run contract requires.
+
+## Hand-in (make.fun)
+
+```
+MAKEFUN_OUTPUT_DIR=<output dir> node main.ts
 ```
 
-`main.ts` (Node 22, standard library only) copies `app/` and `screenshots/` to the output directory and writes `dossier.json` with the kit's vendored `vendor/makefun-frontend.ts`.
-
-## Screenshots
-
-1. `1-checklist.jpg` — checklist, spoiler hiding on, 13 of 55 earned.
-2. `2-guide.jpg` — detail view: *Cunning Stunts*, counter 87/250, sources.
-3. `3-roadmap.jpg` — the road to the Platinum.
-4. `4-missables.jpg` — the one possibly-missable trophy.
-
-## About
-
-An unofficial, fan-made guide. Not affiliated with Rockstar Games; no Rockstar logo or official artwork is used. License: MIT.
+copies `app/` and `screenshots/` into the output directory, audits the copied data (blank guide or uncited step = hard failure, with the citation totals printed), and writes `dossier.json` — the entry summary the judge reads — with the kit's vendored `buildDossier`, under the gate's caps (at most 4 screenshots of at most 256 KiB, dossier text at most 160 KiB, app/ at most 993 entries and 48 MiB). The run is deterministic: two runs from the same tree produce byte-identical output.
